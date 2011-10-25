@@ -10,14 +10,15 @@
 
                        
         Códigos premiados:<br/>
-        Quantidade:<h:outputText escape="false" value="#{SistemaLoginBean.sorteio.sorteados.size()}"/>
+        Quantidade:<h:outputText escape="false" value="#{SistemaBean.sorteio.sorteados.size()}"/>
         <br/>
-        <c:forEach var="n" begin="0" end="#{SistemaLoginBean.sorteio.sorteados.size()-1}">
-            <br/><h:outputText escape="false" value="#{SistemaLoginBean.sorteio.sorteados.get(n)}"/>
+        <c:forEach var="n" begin="0" end="#{SistemaBean.sorteio.sorteados.size()-1}">
+            <br/><h:outputText escape="false" value="#{SistemaBean.sorteio.sorteados.get(n)}"/>
         </c:forEach>
         
         <h:form>
-            <h:commandButton id="sorteio" value="Realizar Sorteio" action="#{SistemaLoginBean.sorteio.sorteie()}" />
+            <h:commandButton id="sorteio" value="Realizar Sorteio" action="#{SistemaBean.sorteio.sorteie()}" />
+            <h:commandButton id="voltar" value="Voltar" action="index" />
         </h:form>
         
         

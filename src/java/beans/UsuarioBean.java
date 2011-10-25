@@ -9,9 +9,10 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 
 public class UsuarioBean {
+    private String nome;
     private String login;
     private String senha;
-    private String nome;
+    private Long   telefone;
     private List   comprovantes;
     private long   codigo;
     
@@ -19,6 +20,13 @@ public class UsuarioBean {
         comprovantes = new ArrayList<ComprovanteBean>();
         this.login = l;
         this.senha = p;
+    }
+    public UsuarioBean(String n, String l, String p, Long t){
+        comprovantes = new ArrayList<ComprovanteBean>();
+        this.login = l;
+        this.senha = p;
+        this.nome = n;
+        this.telefone = t;
     }
 
     public List getComprovantes() {
@@ -53,6 +61,13 @@ public class UsuarioBean {
         this.senha = senha;
     }
 
+    public Long getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(Long telefone) {
+        this.telefone = telefone;
+    }
     public long getCodigo() {
         return codigo;
     }
@@ -69,5 +84,8 @@ public class UsuarioBean {
         
         
         return "jesus";
+    }
+    public String toString(){
+        return nome+" -> "+login;
     }
 }

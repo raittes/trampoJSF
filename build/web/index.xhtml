@@ -3,21 +3,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Sistema</title>
     </h:head>
     <h:body>
         <h3>Sistema de Login</h3>
                 <h:form>
                     Usuario:                    
                     <h:inputText id="login" size="19" maxlength="19"
-                                 value="#{SistemaLoginBean.usuario.login}" /> <br/>
+                                 value="#{loginBean.login}" /> <br/>
                     Senha:
                     <h:inputText id="senha" size="20" maxlength="20"
-                                 value="#{SistemaLoginBean.usuario.senha}" />
+                                 value="#{loginBean.senha}" />
                     <br/>
-                    <h:commandButton id="submit" value="Logar" action="login" />
+                    <h:commandButton id="submit" value="Fazer Login" action="login" />
                 </h:form>
-        <hr/>   
+        
+        <hr/>
+        
+            <h:form>
+                <br/><h:commandButton id="cadastrar" value="Cadastrar Usuario" action="cadastrar" />
+                <br/><h:commandButton id="listar" value="Listar Usuarios" action="listarUsuarios" />
+            </h:form>
+        
+        <hr/>
+        Gerenciamento:<br/>
             <h:form>
                 <h:commandButton id="premiados" value="Ver Premiados" action="premiados" />
             </h:form>

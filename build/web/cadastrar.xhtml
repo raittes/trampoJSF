@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Cadastrar Novo Usuario</title>
+    </h:head>
+    <h:body>
+        
+        <h3>Cadastro:</h3>
+                <h:form>
+                    Nome Completo:                    
+                    <h:inputText id="nome" size="19" maxlength="19"
+                                 value="#{cadastroBean.nome}" /> <br/>
+                    Login desejado:                    
+                    <h:inputText id="login" size="19" maxlength="19"
+                                 value="#{cadastroBean.login}"/> <br/>
+                    Senha desejada:
+                    <h:inputText id="senha" size="20" maxlength="20"
+                                 value="#{cadastroBean.senha}" /> <br/>
+                    Telefone:
+                    <h:inputText id="telefone" size="20" maxlength="20"
+                                 value="#{cadastroBean.telefone}" /> <br/>
+                    <h:commandButton id="submit" value="Cadastrar" action="#{SistemaBean.cadastrar(cadastroBean.nome,cadastroBean.login,cadastroBean.senha,cadastroBean.telefone)}" />
+                </h:form>
+        
+        
+        
+    </h:body>
+</html>
+

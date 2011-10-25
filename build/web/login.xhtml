@@ -8,19 +8,17 @@
         <title>Login</title>
     </h:head>
     <h:body>
-        <h3>Status: <h:outputText escape="false" value="#{SistemaLoginBean.response}"/></h3>
-        Usuario:        
-        <h:outputText escape="false" value="#{SistemaLoginBean.usuario.login}"/>
-        <br/> Senha:
-        <h:outputText escape="false" value="#{SistemaLoginBean.usuario.senha}"/>
+        <h3>Status: <h:outputText escape="false" value="#{SistemaBean.checaLogin(loginBean.login,loginBean.senha)}"/></h3>
+        Logado como:        
+        <h:outputText escape="false" value="#{SistemaBean.login.usuario.login}"/>
         <hr/>
             
             <h:form>
                 Inserir Código promocional:<br/>
                 <h:inputText id="codigo" size="15" maxlength="15"
-                             value="#{SistemaLoginBean.usuario.codigo}" /> <br/>
+                             value="#{SistemaBean.login.usuario.codigo}" /> <br/>
                 
-                <h:commandButton id="submit" value="Inserir" action="#{SistemaLoginBean.usuario.addCodigoPromocional()}" />
+                <h:commandButton id="submit" value="Inserir" action="#{SistemaBean.login.usuario.addCodigoPromocional()}" />
             </h:form>
         
         <hr/>
@@ -28,15 +26,15 @@
         Codigos cadastrados:
         
         
-        <c:forEach var="n" begin="0" end="#{SistemaLoginBean.usuario.comprovantes.size()-1}">
-            <br/><h:outputText escape="false" value="#{SistemaLoginBean.usuario.comprovantes.get(n)}"/>
+        <c:forEach var="n" begin="0" end="#{SistemaBean.login.usuario.comprovantes.size()-1}">
+            <br/><h:outputText escape="false" value="#{SistemaBean.login.usuario.comprovantes.get(n)}"/>
         </c:forEach>
         
         <hr/>
         
         
         <h:form>
-            <h:commandButton id="sair" value="Logout" action="index" />
+            <h:commandButton id="sair" value="Logout" action="#{loginBean.usuario.deslogar()}" />
         </h:form>
         
     </h:body>
