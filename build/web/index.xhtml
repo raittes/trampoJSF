@@ -6,18 +6,18 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        
+        <h3>Sistema de Login</h3>
                 <h:form>
-                    <h:inputText id="login" size="20" maxlength="20"
-                                 value="#{SistemaBean.usuario.login}" />
+                    Usuario:                    
+                    <h:inputText id="login" size="19" maxlength="19"
+                                 value="#{SistemaLoginBean.usuario.login}" /> <br/>
+                    Senha:
                     <h:inputText id="senha" size="20" maxlength="20"
-                                 value="#{SistemaBean.usuario.senha}" />
-                    <h:commandButton id="submit" value="Enviar" action="index" />
-                </h:form> 
-        asdasd
-        <h4><h:outputText escape="false" value="#{SistemaBean.response}"/></h4>
-        asdasd
-        
+                                 value="#{SistemaLoginBean.usuario.senha}" />
+                    <br/>
+                    <h:commandButton id="submit" value="Logar" action="login" />
+                </h:form>
+               
         
     </h:body>
 </html>

@@ -3,7 +3,12 @@ package beans;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
+
+@ManagedBean(name="SorteioBean")
+@SessionScoped
 public class SorteioBean {
     private List sorteados;
     private Random r;

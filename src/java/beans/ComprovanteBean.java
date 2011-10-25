@@ -1,5 +1,10 @@
 package beans;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
+
+@ManagedBean(name="ComprovanteBean")
+@SessionScoped
 public class ComprovanteBean {
     private long codigo;
     private boolean premiado;
