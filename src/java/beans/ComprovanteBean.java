@@ -10,10 +10,11 @@ public class ComprovanteBean {
     private boolean premiado;
 
     public ComprovanteBean(){
-        
+        premiado=false;        
     }
     public ComprovanteBean(long c){
         this.codigo=c;
+        premiado=false;
     }
     public long getCodigo(){
         return this.codigo;
@@ -25,5 +26,15 @@ public class ComprovanteBean {
 
     public void setPremiado(boolean premiado) {
         this.premiado = premiado;
+    }
+    public String toString(){
+        String res = codigo+"";
+        
+            if(premiado)
+                res += " [PREMIADO]";
+            else
+                res += " [não premiado]";
+            
+        return res;
     }
 }

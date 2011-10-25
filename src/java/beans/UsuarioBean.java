@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -12,10 +13,12 @@ public class UsuarioBean {
     private String senha;
     private String nome;
     private List   comprovantes;
+    private long   codigo;
     
     public UsuarioBean(String l, String p){
+        comprovantes = new ArrayList<ComprovanteBean>();
         this.login = l;
-        this.senha = p;        
+        this.senha = p;
     }
 
     public List getComprovantes() {
@@ -49,9 +52,18 @@ public class UsuarioBean {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }    
     
-    public void addCodigoPromocional(long x) {
-        this.comprovantes.add(new ComprovanteBean(x));
+    
+    public void addCodigoPromocional() {
+        this.comprovantes.add(new ComprovanteBean(this.codigo));
     }
     public String getResponse(){
         

@@ -12,7 +12,8 @@ import javax.faces.bean.SessionScoped;
 public class SistemaLoginBean {
     
     private List usuarios;
-    private UsuarioBean usuario;    
+    private UsuarioBean usuario; 
+    private SorteioBean sorteio;
          
     public SistemaLoginBean(){
         usuarios = new ArrayList<UsuarioBean>();
@@ -22,6 +23,7 @@ public class SistemaLoginBean {
         usuarios.add(new UsuarioBean("joao","paulo"));
                 
         usuario = new UsuarioBean(null,null);
+        sorteio = new SorteioBean();
      
     }
     public UsuarioBean getUsuario() {
@@ -29,6 +31,14 @@ public class SistemaLoginBean {
     }
     public void setUsuario(UsuarioBean usuario) {
         this.usuario = usuario;
+    }
+
+    public SorteioBean getSorteio() {
+        return sorteio;
+    }
+
+    public void setSorteio(SorteioBean sorteio) {
+        this.sorteio = sorteio;
     }
     
         
