@@ -11,7 +11,7 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(name="SorteioBean")
 @ApplicationScoped
 public class SorteioBean {
-    private final List sorteados;
+    private final ArrayList<Long> sorteados;
     private Random r;
     
     public SorteioBean(){

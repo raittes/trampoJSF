@@ -20,7 +20,9 @@
             </h:form>
         
         <hr/>
-        
+       
+        RESULTADO : <h:outputText value="#{SistemaBean.checaResultado()}"/>        
+       <br/>
         <c:if test="${SistemaBean.login.usuario.comprovantes.size() != 0}" >  
             Codigos cadastrados:     
             <c:forEach var="n" begin="0" end="#{SistemaBean.login.usuario.comprovantes.size()-1}">
@@ -29,7 +31,8 @@
             <hr/>
         </c:if>
               
-        RESULTADO: <h:outputText value="#{SistemaBean.checaUsuario(SistemaBean.login.usuario)}"/>        
+       
+        
         
         <h:form>
             <h:commandButton id="sair" value="Logout" action="#{SistemaBean.deslogar()}" />

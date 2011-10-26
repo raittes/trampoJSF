@@ -7,12 +7,21 @@
         <title>Resultado</title>
     </h:head>
     <h:body>
-        <h:outputText escape="false" value="#{SistemaBean.checaResultado()}" /> <br/>  
-
-        <c:forEach var="n" begin="0" end="#{SistemaBean.resultadoGeral.size()-1}">
-            <h:outputText escape="false" value="#{SistemaBean.resultadoGeral.get(n)}"/><br/>
+        
+        <h:outputText escape="false" value="#{SistemaBean.resultadoGeral()}"/>
+        Quantidade de premiados: <h:outputText escape="false" value="#{SistemaBean.resultadoGeral.size()}"/><br/>
+        <br/>
+        
+        <c:forEach var="n" begin="0" end="#{SistemaBean.resultadoGeral.size()}">
+            Código: <h:outputText escape="false" value="#{SistemaBean.resultadoGeral.get(n).getCodigo()}"/>
+            Dono: <h:outputText escape="false" value="#{SistemaBean.resultadoGeral.get(n).getDono().getNome()}"/>
+            <br/>
         </c:forEach>
         
+        
+        <h:form>
+                <h:commandButton id="voltar" value="Voltar" action="index" />
+        </h:form>
     </h:body>
 </html>
 
