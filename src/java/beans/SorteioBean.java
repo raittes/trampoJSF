@@ -27,23 +27,5 @@ public class SorteioBean {
 
     public List getSorteados() {
         return sorteados;
-    }
-    
-    public List checaSorteio(UsuarioBean u){
-        List resultado = new ArrayList();
-        List comprovantes = u.getComprovantes();        
-        
-        for(Object objComprovante : comprovantes){
-            for(int i = 0; i<sorteados.size(); i++)
-            {
-                Long sorteado = (Long)sorteados.get(i);
-                Long comprovante = ((ComprovanteBean)objComprovante).getCodigo();
-                if(sorteado==comprovante){
-                    ((ComprovanteBean)objComprovante).setPremiado(true);
-                    resultado.add(comprovante);
-                }                                   
-            }                                    
-        }        
-        return resultado;
-    }           
+    }         
 }

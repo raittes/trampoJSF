@@ -17,12 +17,12 @@ public class UsuarioBean {
     private long   codigo;
     
     public UsuarioBean(String l, String p){
-        comprovantes = new ArrayList<ComprovanteBean>();
+        this.comprovantes = new ArrayList<ComprovanteBean>();
         this.login = l;
         this.senha = p;
     }
     public UsuarioBean(String n, String l, String p, Long t){
-        comprovantes = new ArrayList<ComprovanteBean>();
+        this.comprovantes = new ArrayList<ComprovanteBean>();
         this.login = l;
         this.senha = p;
         this.nome = n;
@@ -36,7 +36,6 @@ public class UsuarioBean {
     public void setComprovantes(List Comprovantes) {
         this.comprovantes = Comprovantes;
     }
-
     public String getLogin() {
         return login;
     }
@@ -78,14 +77,12 @@ public class UsuarioBean {
     
     
     public void addCodigoPromocional() {
-        this.comprovantes.add(new ComprovanteBean(this.codigo));
+        this.comprovantes.add(new ComprovanteBean(this,this.codigo));
     }
     public String getResponse(){
-        
-        
-        return "jesus";
+        return "nada";
     }
     public String toString(){
-        return nome+" -> "+login;
+        return nome+" : "+login+" : "+senha+" : "+telefone;
     }
 }

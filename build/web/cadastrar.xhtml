@@ -21,7 +21,9 @@
                     Telefone:
                     <h:inputText id="telefone" size="20" maxlength="20"
                                  value="#{cadastroBean.telefone}" /> <br/>
+                    <h:outputText escape="false" value="#{cadastroBean.response}" /> <br/>
                     <h:commandButton id="submit" value="Cadastrar" action="#{SistemaBean.cadastrar(cadastroBean.nome,cadastroBean.login,cadastroBean.senha,cadastroBean.telefone)}" />
+                    <h:commandButton id="voltar" value="Voltar" action="index" />
                 </h:form>
         
         

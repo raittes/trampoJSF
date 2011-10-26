@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -10,6 +11,7 @@ public class LoginBean {
     private UsuarioBean usuario;
     private String login;
     private String senha;
+    private List resultado;
     
     public LoginBean() {
         usuario = null;       
@@ -17,9 +19,7 @@ public class LoginBean {
     public void logar(UsuarioBean user){
         this.usuario = user;
     }
-    public void deslogar(){
-        this.usuario = null;
-    }
+  
     public UsuarioBean getUsuario() {
         return usuario;
     }
@@ -42,5 +42,14 @@ public class LoginBean {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public List getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(List resultado) {
+        this.resultado = resultado;
+    }
+    
     
 }

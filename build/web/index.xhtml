@@ -15,20 +15,22 @@
                     <h:inputText id="senha" size="20" maxlength="20"
                                  value="#{loginBean.senha}" />
                     <br/>
-                    <h:commandButton id="submit" value="Fazer Login" action="login" />
+                    <h:commandButton id="submit" value="Fazer Login" action="#{SistemaBean.checaLogin(loginBean.login, loginBean.senha)}" />
                 </h:form>
         
         <hr/>
         
             <h:form>
                 <br/><h:commandButton id="cadastrar" value="Cadastrar Usuario" action="cadastrar" />
-                <br/><h:commandButton id="listar" value="Listar Usuarios" action="listarUsuarios" />
             </h:form>
         
         <hr/>
         Gerenciamento:<br/>
             <h:form>
                 <h:commandButton id="premiados" value="Ver Premiados" action="premiados" />
+                <br/><h:commandButton id="resultado" value="Resultado Geral" action="resultado" />
+                <br/><h:commandButton id="listar" value="Listar Usuarios" action="listarUsuarios" />
+                
             </h:form>
     </h:body>
 </html>

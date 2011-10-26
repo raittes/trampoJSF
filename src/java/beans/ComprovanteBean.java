@@ -8,13 +8,15 @@ import javax.faces.bean.SessionScoped;
 public class ComprovanteBean {
     private long codigo;
     private boolean premiado;
+    private UsuarioBean dono;
 
     public ComprovanteBean(){
         premiado=false;        
     }
-    public ComprovanteBean(long c){
+    public ComprovanteBean(UsuarioBean dono,long c){
+        this.dono = dono;
         this.codigo=c;
-        premiado=false;
+        premiado=false;        
     }
     public long getCodigo(){
         return this.codigo;
@@ -27,6 +29,15 @@ public class ComprovanteBean {
     public void setPremiado(boolean premiado) {
         this.premiado = premiado;
     }
+
+    public UsuarioBean getDono() {
+        return dono;
+    }
+
+    public void setDono(UsuarioBean dono) {
+        this.dono = dono;
+    }
+    
     public String toString(){
         String res = codigo+"";
         

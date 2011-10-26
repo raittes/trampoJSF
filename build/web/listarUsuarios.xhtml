@@ -2,16 +2,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Lista de usuarios</title>
     </h:head>
     <h:body>
         <h3>Lista de Usuarios:</h3>
-        <br/>        
+        
         <c:forEach var="n" begin="0" end="#{SistemaBean.usuarios.size()-1}">
-            <br/><h:outputText escape="false" value="#{SistemaBean.usuarios.get(n)}"/>
+            <h:outputText escape="false" value="#{SistemaBean.usuarios.get(n)}"/><br/>
         </c:forEach>
+        
+        <h:form>
+            <h:commandButton id="voltar" value="Voltar" action="index" />
+        </h:form>
+        
         
     </h:body>
 </html>

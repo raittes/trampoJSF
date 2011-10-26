@@ -47,6 +47,12 @@ public class cadastroBean {
     public void setLogin(String login) {
         this.login = login;
     }
+    public String getResponse(){
+        if(nome!=null)
+            return nome+" cadastrado com sucesso!";
+        else
+            return "";
+    }
     
     
 }
