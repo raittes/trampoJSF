@@ -9,12 +9,12 @@
     <h:body>
         
         <h:outputText escape="false" value="#{SistemaBean.resultadoGeral()}"/>
-        Quantidade de premiados: <h:outputText escape="false" value="#{SistemaBean.resultadoGeral.size()}"/><br/>
-        <br/>
+        <h3>Quantidade de premiados: <h:outputText escape="false" value="#{SistemaBean.resultadoGeral.size()}"/></h3>
         
-        <c:forEach var="n" begin="0" end="#{SistemaBean.resultadoGeral.size()}">
-            Código: <h:outputText escape="false" value="#{SistemaBean.resultadoGeral.get(n).getCodigo()}"/>
-            Dono: <h:outputText escape="false" value="#{SistemaBean.resultadoGeral.get(n).getDono().getNome()}"/>
+        
+        <c:forEach var="n" begin="0" end="#{SistemaBean.resultadoGeral.size()-1}">
+            Código: <h:outputText value="#{SistemaBean.resultadoGeral.get(n).getCodigo()}"/>
+            Dono: <h:outputText value="#{SistemaBean.resultadoGeral.get(n).getDono().getNome()}"/>
             <br/>
         </c:forEach>
         

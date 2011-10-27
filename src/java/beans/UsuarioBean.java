@@ -5,7 +5,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name="UsuarioBean")
+
+@ManagedBean(name="LoginBean")
 @SessionScoped
 
 public class UsuarioBean {
@@ -14,7 +15,10 @@ public class UsuarioBean {
     private String senha;
     private Long   telefone;
     private List   comprovantes;
-    private long   codigo;
+    //private long   codigo;
+    
+    public UsuarioBean(){
+    }
     
     public UsuarioBean(String l, String p){
         this.comprovantes = new ArrayList<ComprovanteBean>();
@@ -67,22 +71,14 @@ public class UsuarioBean {
     public void setTelefone(Long telefone) {
         this.telefone = telefone;
     }
-    public long getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(long codigo) {
-        this.codigo = codigo;
-    }    
-    
-    
-    public void addCodigoPromocional() {
-        this.comprovantes.add(new ComprovanteBean(this,this.codigo));
-    }
-    public String getResponse(){
-        return "nada";
+        
+    public void addCodigoPromocional(Long codigo) {
+        this.comprovantes.add(new ComprovanteBean(this,codigo));
     }
     public String toString(){
-        return nome+" : "+login+" : "+senha+" : "+telefone;
+        return nome+" :: "+login+" : ("+senha+") : "+telefone;
+    }   
+    public String getResponse(){
+        return "lol";
     }
 }

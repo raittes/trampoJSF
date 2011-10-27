@@ -7,22 +7,20 @@
     </h:head>
     <h:body>
         <h3>Sistema de Login</h3>
+        Status: <h:outputText value="#{LoginBean.response}"/>
                 <h:form>
                     Usuario:                    
                     <h:inputText id="login" size="19" maxlength="19"
-                                 value="#{loginBean.login}" /> <br/>
+                                 value="#{LoginBean.login}" /> <br/>
                     Senha:
                     <h:inputText id="senha" size="20" maxlength="20"
-                                 value="#{loginBean.senha}" />
+                                 value="#{LoginBean.senha}" />
                     <br/>
-                    <h:commandButton id="submit" value="Fazer Login" action="#{SistemaBean.checaLogin(loginBean.login, loginBean.senha)}" />
+                    <h:commandButton id="submit" value="Fazer Login" action="#{LoginBean.logar(SistemaBean.checaLogin(LoginBean.login, LoginBean.senha))}" />
+                    <h:commandButton id="cadastrar" value="Cadastrar Usuario" action="cadastrar" />
                 </h:form>
         
-        <hr/>
         
-            <h:form>
-                <br/><h:commandButton id="cadastrar" value="Cadastrar Usuario" action="cadastrar" />
-            </h:form>
         
         <hr/>
         Gerenciamento:<br/>

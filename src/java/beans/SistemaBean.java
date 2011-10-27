@@ -13,7 +13,7 @@ import javax.faces.bean.ApplicationScoped;
 public class SistemaBean {
     
     private List usuarios;
-    private LoginBean login; 
+    //private LoginBean login; 
     private SorteioBean sorteio;
     private ArrayList<ComprovanteBean> resultadoGeral;
          
@@ -25,7 +25,7 @@ public class SistemaBean {
         usuarios.add(new UsuarioBean("Marcos","marcos","paulo",null));
         usuarios.add(new UsuarioBean("Raittes","joao","paulo",null));
         // Usuario da sessao
-        login = new LoginBean();  
+        //login = new LoginBean();  
         
         //CHEATS
         sorteio.getSorteados().add(new Long(1010));
@@ -34,27 +34,27 @@ public class SistemaBean {
         
     }
 
-    public String deslogar(){
-        // se colocar null, despois q faz logout da pau!
-        login = new LoginBean();
-        return "index";
-    } 
+    //public String deslogar(){
+    //    // se colocar null, despois q faz logout da pau!
+     //   login = new LoginBean();
+     //   return "index";
+    //} 
     public void cadastrar(String nome, String login, String senha, Long telefone) {
         usuarios.add(new UsuarioBean(nome,login,senha,telefone));
     }   
-
-    public String checaLogin(String slogin, String senha){
+    
+    public UsuarioBean checaLogin(String slogin, String senha){
         for(Object u : usuarios){
             UsuarioBean user = (UsuarioBean) u;
             if(slogin.equals(user.getLogin().toString())){
                 if(senha.equals(user.getSenha())){
-                    login.logar(user);
-                    return "login";                                        
+                    //logou, retorna user
+                    return user;                                        
                 }
             }
         }        
-        //senao manda pra erro.xhtml
-        return "erro";
+        //login errado = null
+        return null;
     }
     
         
@@ -79,12 +79,12 @@ public class SistemaBean {
             }                                    
         }        
         
-        login.setResultado(resultado);
+        //login.setResultado(resultado);
         return (ArrayList<ComprovanteBean>) resultado;
         //return "Voce tem: "+resultado.size()+" numeros sorteados!";
     }  
     
-    public String checaResultado(){
+    public String checaResultado(LoginBean login){
         // retorna lista de numeros premiados do usuario logado
         login.setResultado(this.checaUsuario(login.getUsuario()));
         return login.getResultado().size()+" numeros premiados: "+login.getResultado();
@@ -106,12 +106,26 @@ public class SistemaBean {
         this.resultadoGeral = (ArrayList<ComprovanteBean>) resultado;
         //return resultadoGeral;
     }    
-    public LoginBean getLogin() {
-        return login;
+    public String validaCodigo(UsuarioBean u, Long codigo){
+        //roda a verificacao antes de testar
+        this.resultadoGeral();
+        /// VALIDA PARA NAO REPETIR OS PREMIADOS
+        for(ComprovanteBean comprovante : resultadoGeral){
+            if(codigo == comprovante.getCodigo()){
+                return null;
+            }
+        }
+        // VALIDA PARA USUARIO NAO REPETIR COMPROVANTES
+        for(Object objC : u.getComprovantes()){
+            ComprovanteBean comprovante = (ComprovanteBean)objC;
+        
+            if(codigo == comprovante.getCodigo()){
+                return null;
+            }
+        }
+        u.addCodigoPromocional(codigo);
+        return "";
     }
-    public void setLogin(LoginBean login) {
-        this.login = login;
-    }   
     public List getUsuarios() {
         return usuarios;
     }

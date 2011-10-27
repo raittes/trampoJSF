@@ -8,25 +8,26 @@
         <title>Login</title>
     </h:head>
     <h:body>
-        <h3>Logado como: <h:outputText escape="false" value="#{SistemaBean.login.usuario.login}"/></h3>
+        <h3>Logado como: <h:outputText escape="false" value="#{LoginBean.usuario.login}"/></h3>
+        Voce possui <h:outputText value="#{SistemaBean.checaResultado(LoginBean.this)}"/>        
+       <br/>
         <hr/>
             
             <h:form>
                 Inserir Código promocional:<br/>
                 <h:inputText id="codigo" size="15" maxlength="15"
-                             value="#{SistemaBean.login.usuario.codigo}" /> <br/>
+                             value="#{LoginBean.codigo}" /> <br/>
                 
-                <h:commandButton id="submit" value="Inserir" action="#{SistemaBean.login.usuario.addCodigoPromocional()}" />
+                <h:commandButton id="submit" value="Inserir" action="#{SistemaBean.validaCodigo(LoginBean.usuario,LoginBean.codigo)}" />
             </h:form>
         
         <hr/>
        
-        RESULTADO : <h:outputText value="#{SistemaBean.checaResultado()}"/>        
-       <br/>
-        <c:if test="${SistemaBean.login.usuario.comprovantes.size() != 0}" >  
+        
+        <c:if test="${LoginBean.usuario.comprovantes.size() != 0}" >  
             Codigos cadastrados:     
-            <c:forEach var="n" begin="0" end="#{SistemaBean.login.usuario.comprovantes.size()-1}">
-                <br/><h:outputText escape="false" value="#{SistemaBean.login.usuario.comprovantes.get(n)}"/>
+            <c:forEach var="n" begin="0" end="#{LoginBean.usuario.comprovantes.size()-1}">
+                <br/><h:outputText escape="false" value="#{LoginBean.usuario.comprovantes.get(n)}"/>
             </c:forEach>
             <hr/>
         </c:if>
@@ -35,7 +36,7 @@
         
         
         <h:form>
-            <h:commandButton id="sair" value="Logout" action="#{SistemaBean.deslogar()}" />
+            <h:commandButton id="sair" value="Logout" action="#{LoginBean.deslogar(LoginBean.usuario)}" />
         </h:form>
         
     </h:body>

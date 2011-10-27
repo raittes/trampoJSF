@@ -3,7 +3,8 @@ package beans;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-@ManagedBean
+
+@ManagedBean(name="cadastroBean")
 @RequestScoped
 public class cadastroBean {
 

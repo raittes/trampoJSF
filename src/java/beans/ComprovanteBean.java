@@ -44,7 +44,7 @@ public class ComprovanteBean {
             if(premiado)
                 res += " [PREMIADO]";
             else
-                res += " [não premiado]";
+                res += " [não]";
             
         return res;
     }
