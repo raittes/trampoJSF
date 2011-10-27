@@ -7,15 +7,15 @@
         <title>Premiados</title>
     </h:head>
     <h:body>
-
                        
-        Códigos premiados:<br/>
-        Quantidade:<h:outputText escape="false" value="#{SistemaBean.sorteio.sorteados.size()}"/>
+        <h3>Códigos premiados:</h3>
+        Quantidade: <b><h:outputText escape="false" value="#{SistemaBean.sorteio.sorteados.size()}"/></b>
         <br/>
         <c:forEach var="n" begin="0" end="#{SistemaBean.sorteio.sorteados.size()-1}">
             <br/><h:outputText escape="false" value="#{SistemaBean.sorteio.sorteados.get(n)}"/>
         </c:forEach>
         
+        <br/>        
         <h:form>
             <h:commandButton id="sorteio" value="Realizar Sorteio" action="#{SistemaBean.sorteio.sorteie()}" />
             <h:commandButton id="voltar" value="Voltar" action="index" />
