@@ -30,6 +30,9 @@ public class LoginBean {
     }  
     public String deslogar(UsuarioBean user){
         this.usuario=null;
+        this.login=null;
+        this.senha=null;
+        this.codigo=null;
         return "index";
     }
     public UsuarioBean getUsuario() {
